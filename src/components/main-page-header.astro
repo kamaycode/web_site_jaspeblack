@@ -1,0 +1,79 @@
+---
+const  { classMenu } = Astro.props;
+---
+
+<!-- template sections -->
+<div class={classMenu}>
+    <div class="logo-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center main-logo">
+                        <div class="float-left buttons">
+                            <a class="theme_button inverse2" href="https://api.whatsapp.com/send?phone=593988266839" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <span>
+                                <a href="https://api.whatsapp.com/send?phone=593988266839" target="_blank">
+                                    (+593) 0988266839
+                                </a>
+                            </span>
+                        </div>
+                        <a href="/">
+                            <img src="/images/logo.png" alt="">
+                        </a>
+                        <div class="float-right buttons">
+                            <span class="logo-right-text">
+                                <a href="mailto:info@jaspeblack.com" target="_blank">info@jaspeblack.com</a>
+                            </span>
+                            <a class="theme_button inverse2" href="mailto:info@jaspeblack.com" target="_blank">
+                                <i class="fa-regular fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="page_header header_white floating_logo columns_padding_0 table_section">
+        <div class="container-fluid">
+            <a class="menu-line-logo" href="/">
+                <img src="/images/logo-sm.png" alt="">
+            </a>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <!-- main nav start -->
+                    <nav class="mainmenu_wrapper">
+                        <ul class="mainmenu nav sf-menu">
+                            <li>
+                                <a href="/">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="/about">Nosotros</a>
+                            </li>
+                            <li>
+                                <a href="/services">Servicios</a>
+                            </li>
+                            <li>
+                                <a href="/plan">Promociones</a>
+                            </li>
+                            <li>
+                                <a href="/contact">Contacto</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- eof main nav -->
+                    <span class="toggle_menu">
+                        <span></span>
+                    </span>
+                </div>
+            </div>
+            <div class="float-right menu-line-button buttons">
+                <span>(+593) 0988266839</span>
+                <a class="theme_button inverse2" href="https://api.whatsapp.com/send?phone=593988266839" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+</div>

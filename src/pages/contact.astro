@@ -1,0 +1,337 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+if (Astro.request.method === "POST") {
+    try {
+    const data = await Astro.request.formData();
+    console.log(data);
+    // const name = data.get("username");
+    // const email = data.get("email");
+    // const password = data.get("password");
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<Layout classMenu="other-page-header">
+    <section class="page_breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="/">
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="active">Contacto</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="map"></section>
+
+    <section class="ls section_padding_top_100 section_padding_bottom_100 columns_padding_25">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 to_animate">
+
+                    <form method="POST">
+                        <h4 class="bottommargin_50">Formulario De Contacto</h4>
+                        <div class="row">
+
+                            <div class="col-sm-6 padding-right-5">
+                                <p class="contact-form-name">
+
+                                    <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Nombre" required >
+                                </p>
+                                <p class="contact-form-email">
+
+                                    <input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Asunto" required >
+                                </p>
+                            </div>
+                            <div class="col-sm-6 padding-left-5">
+                                <p class="contact-form-subject">
+
+                                    <input type="text" aria-required="true" size="30" value="" name="nubmer" id="number" class="form-control" placeholder="Número Teléfono" required >
+                                </p>
+                                <p class="contact-form-subject">
+
+                                    <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Correco" required >
+                                </p>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <p class="contact-form-message">
+
+                                    <textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control" placeholder="Mensaje" required ></textarea>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <p class="contact-form-submit text-ms-left topmargin_30">
+                                    <button class="theme_button color1">Enviar Mensaje</button>
+                                </p>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-4 to_animate">
+                    <h4 class="bottommargin_50">Informe de Contacto</h4>
+                    <p class="text-with-i">
+                        <i class="fa-solid fa-location-dot highlight2"></i>
+                        <span>Jorge Drom E4-23 y Pereira Edif. Iñaquito Torre 2</span>
+                    </p>
+                    <p class="text-with-i">
+                        <i class="fa-solid fa-phone-volume highlight2"></i>
+                        <a href="tel:+593988266839" target="_blank">(+593) 0988266839</a>
+                    </p>
+                    <p class="text-with-i email-info">
+                        <i class="fa-solid fa-envelope-open highlight2"></i>
+                        <a href="mailto:info@jaspeblack.com" target="_blank">info@jaspeblack.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initGoogleMap&key=AIzaSyAVPpSQBHEscOGBx-8Y8ADsmBcylrNE4CM" async defer></script>
+
+<script is:inline>
+
+    function saveForm(){
+
+    }
+    window.initGoogleMap = function() {
+        var lat;
+        var lng;
+        var map;
+        var styles = [{
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#1a314a"
+            }]
+        }, {
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#1a726a"
+            }]
+        }, {
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "color": "#1a3646"
+            }]
+        }, {
+            "featureType": "administrative.country",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#4b6878"
+            }]
+        }, {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#64779e"
+            }]
+        }, {
+            "featureType": "administrative.province",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#4b6878"
+            }]
+        }, {
+            "featureType": "landscape.man_made",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#334e87"
+            }]
+        }, {
+            "featureType": "landscape.natural",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#023e58"
+            }]
+        }, {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#283d6a"
+            }]
+        }, {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#6f9ba5"
+            }]
+        }, {
+            "featureType": "poi",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#1d2c4d"
+            }]
+        }, {
+            "featureType": "poi.park",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#023e58"
+            }]
+        }, {
+            "featureType": "poi.park",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#3C7680"
+            }]
+        }, {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#0f5357"
+            }]
+        }, {
+            "featureType": "road",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#98a5be"
+            }]
+        }, {
+            "featureType": "road",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "color": "#1d2c4d"
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#2c6675"
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#255763"
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#b0d5ce"
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "color": "#023e58"
+            }]
+        }, {
+            "featureType": "transit",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#98a5be"
+            }]
+        }, {
+            "featureType": "transit",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#1d2c4d"
+            }]
+        }, {
+            "featureType": "transit.line",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#283d6a"
+            }]
+        }, {
+            "featureType": "transit.station",
+            "elementType": "geometry",
+            "stylers": [{
+                "visibility": "off"
+            }, {
+                "color": "#3a4762"
+            }]
+        }, {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#0e1626"
+            }]
+        }, {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#4e6d70"
+            }]
+        }]
+        var geocoder = new google.maps.Geocoder();
+
+        //type your address after "address="
+        var address = 'Jorge Drom, Quito 170102, Ecuador';
+        //type your address after "address="
+        geocoder.geocode({
+            address: address
+        }, function(data) {
+
+            var lat = -0.171432;
+            var lng = -78.485514;
+            var center = new google.maps.LatLng(lat, lng);
+            var settings = {
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                zoom: 20,
+                draggable: false,
+                scrollwheel: false,
+                center: center,
+                styles: styles
+            };
+            map = new google.maps.Map(document.getElementById('map'), settings);
+
+            var marker = new google.maps.Marker({
+                position: center,
+                icon: "./images/ico.png",
+                title: 'Jaspeblack S.A',
+                map: map
+            });
+            marker.setTitle('Jaspeblack S.A'.toString());
+            //type your map title and description here
+            attachSecretMessage(marker, '<h3>Jaspeblack S.A</h3><p>Estamos contigo haciendo más fácil el momento más difícil.</p>');
+        })
+
+        function attachSecretMessage(marker, message) {
+            var infowindow = new google.maps.InfoWindow({
+                content: message
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+
+    }
+</script>
